@@ -104,15 +104,13 @@ public class Order {
         System.out.println("2. Slim Fit");
         int pantsFitChoice = scanner.nextInt();
 
-        PantsProcessingCommand fitCommand;
-
         switch (pantsFitChoice) {
             case 1:
                 pantsProcessingPipeline.addCommand(new PantsRegularFitCommand());
-                break; //break ? eller kanske return
+                break;
             case 2:
                 pantsProcessingPipeline.addCommand(new PantsSlimFitCommand());
-                break; // samma här break eller return hmmm
+                break;
             default:
                 System.out.println("Invalid choice");
         }
