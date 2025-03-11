@@ -98,7 +98,6 @@ public class Order {
 
         //pants.addPropertyChangeListener(productionObserver);
 
-
         PantsProcessingPipeline pantsProcessingPipeline = new PantsProcessingPipeline();
 
         System.out.println("What fit would you like your pants to be?");

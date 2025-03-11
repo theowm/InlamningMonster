@@ -9,7 +9,6 @@ import java.beans.PropertyChangeSupport;
 public class PantsBuilder {
 
     private Pants pants = new Pants();
-    private PropertyChangeListener externalListener = null;
 
     public PantsBuilder addId(int id){
 
@@ -59,13 +58,6 @@ public class PantsBuilder {
         return this;
     }
 
-    //private PropertyChangeSupport propertyChangeSupport; //"Klass som tillhandahåller support för att lyssna på förändringar i vårt objekt"
-
-    public PantsBuilder addPropertyChangeListener(PropertyChangeListener listener) {
-        pants.addPropertyChangeListener(listener);
-        return this;
-    }
-
     public Pants build(){
 
         if(pants.getSize() == null){
@@ -79,8 +71,6 @@ public class PantsBuilder {
         if(pants.getColor() == null){
             throw new RuntimeException("Color missing");
         }
-
-        //pants.firePropertyChange("manufacturing", null, pants);
 
         return pants;
     }

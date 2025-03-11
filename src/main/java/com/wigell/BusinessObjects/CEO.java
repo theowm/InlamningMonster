@@ -5,4 +5,8 @@ import java.beans.PropertyChangeListener;
 
 public class CEO {
 
+    private int id;
+
+    private String name;
+
 }
