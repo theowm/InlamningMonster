@@ -1,5 +1,8 @@
 package com.wigell.BusinessObjects;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class Skirt {
 
     private int id;
@@ -18,8 +21,18 @@ public class Skirt {
 
     private String pattern;
 
+    private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
     public Skirt() {
         this.price = 599;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
     }
 
     public int getId() {
