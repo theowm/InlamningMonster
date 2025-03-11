@@ -15,7 +15,7 @@ public class App
     {
         //Lyssnare på när produktionen börjas
         ProductionObserver productionObserver = new ProductionObserver();
-        OrderObserver orderObserver = new OrderObserver();
+        CEO ceo = new CEO();
         Receipt receipt = new Receipt();
         Order order = new Order();
 

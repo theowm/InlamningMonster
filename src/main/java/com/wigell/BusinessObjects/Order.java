@@ -95,7 +95,6 @@ public class Order {
                 .addColor(pantsColor)
                 .build();
 
-
         //pants.addPropertyChangeListener(productionObserver);
 
         PantsProcessingPipeline pantsProcessingPipeline = new PantsProcessingPipeline();
@@ -144,6 +143,7 @@ public class Order {
     public void processTShirtOrder(Scanner scanner, Customer customer, Receipt receipt) {
 
         TShirtBuilder tShirtBuilder = new TShirtBuilder();
+        ProductionObserver productionObserver = new ProductionObserver();
 
         System.out.println("What material would you like your T-Shirt to be made out of?");
         System.out.println("1. Cotton");
@@ -220,7 +220,7 @@ public class Order {
                 .addColor(tshirtColor)
                 .build();
 
-        //break;
+        tshirt.addPropertyChangeListener(productionObserver);
 
         TShirtProcessingPipeline tShirtProcessingPipeline = new TShirtProcessingPipeline();
 
@@ -228,8 +228,6 @@ public class Order {
         System.out.println("1. Crew neck");
         System.out.println("2. V-Neck");
         int tShirtNeckChoice = scanner.nextInt();
-
-        PantsProcessingCommand pantsProcessingCommand;
 
         switch (tShirtNeckChoice) {
             case 1:

@@ -1,6 +1,13 @@
 package com.wigell.BusinessObjects;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class TShirt {
+
+    private int id;
+
+    private String name;
 
     private String size;
 
@@ -14,8 +21,15 @@ public class TShirt {
 
     private String neck;
 
+    private PropertyChangeSupport propertyChangeSupport;
+
     public TShirt() {
         this.price = 299;
+        this.propertyChangeSupport = new PropertyChangeSupport(this);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
 
     public String getSize() {
@@ -23,7 +37,10 @@ public class TShirt {
     }
 
     public void setSize(String size) {
+        String oldSize = this.size;
         this.size = size;
+
+        this.propertyChangeSupport.firePropertyChange("size", oldSize, this.size);
     }
 
     public int getPrice() {
@@ -64,5 +81,21 @@ public class TShirt {
 
     public void setNeck(String neck) {
         this.neck = neck;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

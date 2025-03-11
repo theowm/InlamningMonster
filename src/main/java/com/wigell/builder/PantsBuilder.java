@@ -71,8 +71,6 @@ public class PantsBuilder {
         if(pants.getColor() == null){
             throw new RuntimeException("Color missing");
         }
-
         return pants;
     }
-
 }

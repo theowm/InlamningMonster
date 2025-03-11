@@ -42,7 +42,7 @@ class PantsBuilderTest {
                 .addMaterial("Denim")
                 .addColor("Blue")
                 .addFit("Slim")
-                .addLenght("32");
+                .addLenght("Long");
 
         Exception exception = assertThrows(RuntimeException.class, builder::build);
         assertEquals("Size missing", exception.getMessage());
@@ -57,7 +57,7 @@ class PantsBuilderTest {
                 .addPrice(599)
                 .addColor("Blue")
                 .addFit("Slim")
-                .addLenght("32");
+                .addLenght("Long");
 
         Exception exception = assertThrows(RuntimeException.class, builder::build);
         assertEquals("Material missing", exception.getMessage());
@@ -72,7 +72,7 @@ class PantsBuilderTest {
                 .addPrice(599)
                 .addMaterial("Linen")
                 .addFit("Slim")
-                .addLenght("32");
+                .addLenght("Long");
 
         Exception exception = assertThrows(RuntimeException.class, builder::build);
         assertEquals("Color missing", exception.getMessage());

@@ -21,8 +21,15 @@ public class Skirt {
 
     private String pattern;
 
+    private PropertyChangeSupport propertyChangeSupport;
+
     public Skirt() {
         this.price = 599;
+        this.propertyChangeSupport = new PropertyChangeSupport(this);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
 
     public int getId() {
@@ -46,7 +53,10 @@ public class Skirt {
     }
 
     public void setSize(String size) {
+        String oldSize = this.size;
         this.size = size;
+
+        this.propertyChangeSupport.firePropertyChange("size", oldSize, this.size);
     }
 
     public int getPrice() {
