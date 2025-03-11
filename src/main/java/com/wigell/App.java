@@ -1,10 +1,6 @@
 package com.wigell;
 
 import com.wigell.BusinessObjects.*;
-import com.wigell.Command.*;
-import com.wigell.builder.PantsBuilder;
-import com.wigell.builder.SkirtBuilder;
-import com.wigell.builder.TShirtBuilder;
 
 import java.util.Scanner;
 
@@ -19,6 +15,7 @@ public class App
     {
         //Lyssnare på när produktionen börjas
         ProductionObserver productionObserver = new ProductionObserver();
+        OrderObserver orderObserver = new OrderObserver();
         Receipt receipt = new Receipt();
         Order order = new Order();
 

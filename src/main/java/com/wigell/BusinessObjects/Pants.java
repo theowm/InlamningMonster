@@ -53,7 +53,10 @@ public class Pants {
     }
 
     public void setSize(String size) {
+        String oldSize = this.size;
         this.size = size;
+
+        this.propertyChangeSupport.firePropertyChange("size", oldSize, this.size);
     }
 
     public int getPrice() {
